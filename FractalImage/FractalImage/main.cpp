@@ -1,13 +1,27 @@
 #include <iostream>
-#include "BitmapFileHeader.h"
-#include "BitmapInfoHeader.h"
+#include "Bitmap.h"
 using namespace std;
+using namespace TryharderMedia;
 
 int main()
 {
+	int const WIDTH = 800;
+	int const HEIGHT = 600;
 
-	cout << "Hello World!" << endl;
+	Bitmap bitmap(WIDTH, HEIGHT);
+
+	for (int y = 0; y < HEIGHT; y++)
+	{
+		for (int x = 0; x < WIDTH; x++)
+		{
+			bitmap.setPixel(x, y, 255, 0, 0);
+		}
+	}
+
+	bitmap.write("test.bmp");
+
+	cout << "Finished." << endl;
 
 	system("pause");
-	return 0;
+	return 0; 
 }
